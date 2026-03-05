@@ -38,13 +38,15 @@
   "scripts": {
     "build": "tsc --project tsconfig.json",
     "typecheck": "tsc --noEmit",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "release": "pnpm build && changeset publish"
   },
   "dependencies": {
     "viem": "^2.21.0"
   },
   "devDependencies": {
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "@changesets/cli": "^2.27.0"
   },
   "publishConfig": {
     "access": "public"
