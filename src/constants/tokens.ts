@@ -1,0 +1,18 @@
+export const TOKENS = {
+  base: {
+    USDC: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913' as `0x${string}`,
+    WETH: '0x4200000000000000000000000000000000000006' as `0x${string}`,
+  },
+  baseSepolia: {
+    USDC: '0x036CbD53842c5426634e7929541eC2318f3dCF7e' as `0x${string}`,
+    WETH: '0x4200000000000000000000000000000000000006' as `0x${string}`,
+  },
+  ethereumSepolia: {
+    USDC: '0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238' as `0x${string}`,
+    WETH: '0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9' as `0x${string}`,
+  },
+  ethereum: {
+    USDC: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48' as `0x${string}`,
+    WETH: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2' as `0x${string}`,
+  },
+} as const;
