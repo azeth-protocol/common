@@ -75,9 +75,11 @@ export function getBundlerUrl(chainName: SupportedChainName, apiKey?: string): s
  *  proxies bundler requests using its own API key (testnet only).
  *
  *  @param serverUrl - Azeth server URL (e.g. 'https://api.azeth.ai')
+ *  @param chainId - Optional chain ID to route to the correct bundler (e.g. 11155111 for Eth Sepolia)
  */
-export function getServerBundlerUrl(serverUrl: string): string {
-  return `${serverUrl.replace(/\/$/, '')}/api/v1/bundler/rpc`;
+export function getServerBundlerUrl(serverUrl: string, chainId?: number): string {
+  const base = `${serverUrl.replace(/\/$/, '')}/api/v1/bundler/rpc`;
+  return chainId ? `${base}?chainId=${chainId}` : base;
 }
 
 export function getPaymasterUrl(chainName: SupportedChainName, apiKey?: string): string | undefined {
