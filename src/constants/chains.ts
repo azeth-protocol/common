@@ -1,8 +1,13 @@
 /** Per-chain infrastructure URLs and metadata.
  *
- *  Resolution order for bundler/paymaster/RPC:
- *    1. Explicit `AzethKitConfig` value
- *    2. Environment variable (`AZETH_BUNDLER_URL`, `AZETH_PAYMASTER_URL`, `AZETH_RPC_URL`)
+ *  Resolution order for RPC:
+ *    1. Explicit `AzethKitConfig.rpcUrl` value
+ *    2. Per-chain env var (AZETH_RPC_URL_BASE_SEPOLIA, etc. — see RPC_ENV_KEYS in utils/chains.ts)
+ *    3. Chain default from this table (`rpcDefault`)
+ *
+ *  Resolution order for bundler/paymaster:
+ *    1. Explicit config value
+ *    2. Environment variable (`AZETH_BUNDLER_URL`, `AZETH_PAYMASTER_URL`)
  *    3. Chain default from this table (bundlerBaseUrl + PIMLICO_API_KEY from env)
  *    4. Error with actionable setup instructions
  */

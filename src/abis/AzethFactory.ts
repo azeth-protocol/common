@@ -640,8 +640,131 @@ export const AzethFactoryAbi = [
     "anonymous": false
   },
   {
+    "type": "function",
+    "name": "createAccountWithSignature",
+    "inputs": [
+      {
+        "name": "owner",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "salt",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "guardrails",
+        "type": "tuple",
+        "internalType": "struct IGuardianModule.Guardrails",
+        "components": [
+          {
+            "name": "maxTxAmountUSD",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "dailySpendLimitUSD",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "guardianMaxTxAmountUSD",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "guardianDailySpendLimitUSD",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "guardian",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "emergencyWithdrawTo",
+            "type": "address",
+            "internalType": "address"
+          }
+        ]
+      },
+      {
+        "name": "protocols",
+        "type": "address[]",
+        "internalType": "address[]"
+      },
+      {
+        "name": "tokens",
+        "type": "address[]",
+        "internalType": "address[]"
+      },
+      {
+        "name": "agentURI",
+        "type": "string",
+        "internalType": "string"
+      },
+      {
+        "name": "signature",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "tokenId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "nonces",
+    "inputs": [
+      {
+        "name": "owner",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "DOMAIN_SEPARATOR",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
     "type": "error",
     "name": "AccountAlreadyDeployed",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidSignature",
     "inputs": []
   },
   {
