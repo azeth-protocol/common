@@ -39,13 +39,13 @@ export const SUPPORTED_CHAINS = {
   ethereumSepolia: {
     id: 11155111,
     name: 'Ethereum Sepolia',
-    rpcDefault: 'https://rpc.sepolia.org',
+    rpcDefault: 'https://11155111.rpc.thirdweb.com',
     bundlerBaseUrl: 'https://api.pimlico.io/v2/11155111/rpc',
   },
   ethereum: {
     id: 1,
     name: 'Ethereum',
-    rpcDefault: 'https://cloudflare-eth.com',
+    rpcDefault: 'https://eth.merkle.io',
     bundlerBaseUrl: 'https://api.pimlico.io/v2/1/rpc',
   },
 } as const satisfies Record<string, ChainConfig>;
