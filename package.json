@@ -1,6 +1,6 @@
 {
   "name": "@azeth/common",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "type": "module",
   "description": "Shared types, constants, ABIs, and errors for the Azeth trust infrastructure",
   "license": "MIT",
