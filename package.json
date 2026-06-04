@@ -1,6 +1,6 @@
 {
   "name": "@azeth/common",
-  "version": "0.2.19",
+  "version": "0.2.20",
   "type": "module",
   "description": "Shared types, constants, ABIs, and errors for the Azeth trust infrastructure",
   "license": "MIT",
@@ -40,18 +40,11 @@
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist"
   },
-  "dependencies": {},
-  "peerDependencies": {
+  "dependencies": {
     "viem": "^2.21.0"
-  },
-  "peerDependenciesMeta": {
-    "viem": {
-      "optional": true
-    }
   },
   "devDependencies": {
-    "typescript": "^5.7.0",
-    "viem": "^2.21.0"
+    "typescript": "^5.7.0"
   },
   "publishConfig": {
     "access": "public"
