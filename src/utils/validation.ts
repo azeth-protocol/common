@@ -105,6 +105,38 @@ export function isValidUrl(url: string, requireHttps = false): boolean {
   }
 }
 
+/** RFC-2606 reserved example domains — never a real service (matched as the host OR any subdomain). */
+const PLACEHOLDER_DOMAINS = ['example.com', 'example.org', 'example.net'];
+/** Suffixes of well-known ephemeral tunnels (dev URLs that go dead). */
+const EPHEMERAL_TUNNEL_SUFFIXES = [
+  '.ngrok-free.app', '.ngrok.io', '.ngrok.app', '.ngrok.dev',
+  '.trycloudflare.com', '.loca.lt', '.serveo.net', '.localhost.run',
+];
+
+/** Heuristic: does a registry `endpoint` look like a real, callable public service URL?
+ *  Returns false for blank/whitespace, non-http(s), placeholder hosts (example.com, localhost),
+ *  and well-known ephemeral tunnels (*.ngrok-free.app, *.trycloudflare.com, …).
+ *
+ *  This is an ADVISORY "looks callable" flag for ranking/skipping dead listings — NOT a
+ *  reachability guarantee and NOT a security control (the SSRF guard protects the actual fetch). (F8) */
+export function isUsableEndpoint(endpoint?: string | null): endpoint is string {
+  if (!endpoint) return false;
+  const trimmed = endpoint.trim();
+  if (!trimmed || !isValidUrl(trimmed)) return false;
+  let host: string;
+  try {
+    host = new URL(trimmed).hostname.toLowerCase();
+  } catch {
+    return false;
+  }
+  // localhost and *.localhost (RFC 6761), reserved example domains and their subdomains (RFC 2606)
+  if (host === 'localhost' || host.endsWith('.localhost')) return false;
+  if (PLACEHOLDER_DOMAINS.some((d) => host === d || host.endsWith('.' + d))) return false;
+  if (host === '127.0.0.1' || host === '0.0.0.0' || host.endsWith('.local')) return false;
+  if (EPHEMERAL_TUNNEL_SUFFIXES.some((s) => host.endsWith(s))) return false;
+  return true;
+}
+
 /** Validate a BigInt is within uint256 range */
 export function isValidUint256(value: bigint): boolean {
   return value >= 0n && value < 2n ** 256n;
