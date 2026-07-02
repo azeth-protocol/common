@@ -169,6 +169,30 @@ export const AzethOracleAbi = [
   },
   {
     "type": "function",
+    "name": "getPriceBand",
+    "inputs": [
+      {
+        "name": "token",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "minPrice",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "maxPrice",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
     "name": "getSupportedTokens",
     "inputs": [],
     "outputs": [
@@ -364,6 +388,29 @@ export const AzethOracleAbi = [
   },
   {
     "type": "function",
+    "name": "setPriceBand",
+    "inputs": [
+      {
+        "name": "token",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "minPrice",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "maxPrice",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
     "name": "setTokenStatus",
     "inputs": [
       {
@@ -474,7 +521,7 @@ export const AzethOracleAbi = [
       {
         "name": "newOracle",
         "type": "address",
-        "indexed": false,
+        "indexed": true,
         "internalType": "address"
       }
     ],
@@ -514,6 +561,31 @@ export const AzethOracleAbi = [
         "type": "address",
         "indexed": true,
         "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "PriceBandUpdated",
+    "inputs": [
+      {
+        "name": "token",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "minPrice",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "maxPrice",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
       }
     ],
     "anonymous": false
@@ -587,6 +659,11 @@ export const AzethOracleAbi = [
   },
   {
     "type": "error",
+    "name": "InvalidPriceBand",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "InvalidStaleness",
     "inputs": []
   },
@@ -612,6 +689,28 @@ export const AzethOracleAbi = [
     "inputs": [
       {
         "name": "account",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "PriceOutOfBand",
+    "inputs": [
+      {
+        "name": "token",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "StaleOracleRound",
+    "inputs": [
+      {
+        "name": "token",
         "type": "address",
         "internalType": "address"
       }

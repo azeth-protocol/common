@@ -12,6 +12,19 @@ export const AzethFactoryAbi = [
   },
   {
     "type": "function",
+    "name": "DOMAIN_SEPARATOR",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
     "name": "MAX_ACCOUNTS_PER_OWNER",
     "inputs": [],
     "outputs": [
@@ -174,6 +187,135 @@ export const AzethFactoryAbi = [
       }
     ],
     "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "createAccountWithSignature",
+    "inputs": [
+      {
+        "name": "owner",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "salt",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "guardrails",
+        "type": "tuple",
+        "internalType": "struct IGuardianModule.Guardrails",
+        "components": [
+          {
+            "name": "maxTxAmountUSD",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "dailySpendLimitUSD",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "guardianMaxTxAmountUSD",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "guardianDailySpendLimitUSD",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "guardian",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "emergencyWithdrawTo",
+            "type": "address",
+            "internalType": "address"
+          }
+        ]
+      },
+      {
+        "name": "protocols",
+        "type": "address[]",
+        "internalType": "address[]"
+      },
+      {
+        "name": "tokens",
+        "type": "address[]",
+        "internalType": "address[]"
+      },
+      {
+        "name": "agentURI",
+        "type": "string",
+        "internalType": "string"
+      },
+      {
+        "name": "signature",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "tokenId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "eip712Domain",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "fields",
+        "type": "bytes1",
+        "internalType": "bytes1"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "internalType": "string"
+      },
+      {
+        "name": "version",
+        "type": "string",
+        "internalType": "string"
+      },
+      {
+        "name": "chainId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "verifyingContract",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "salt",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "extensions",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      }
+    ],
+    "stateMutability": "view"
   },
   {
     "type": "function",
@@ -375,6 +517,25 @@ export const AzethFactoryAbi = [
   },
   {
     "type": "function",
+    "name": "nonces",
+    "inputs": [
+      {
+        "name": "owner",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
     "name": "oracle",
     "inputs": [],
     "outputs": [
@@ -535,6 +696,12 @@ export const AzethFactoryAbi = [
   },
   {
     "type": "event",
+    "name": "EIP712DomainChanged",
+    "inputs": [],
+    "anonymous": false
+  },
+  {
+    "type": "event",
     "name": "InfrastructureConfigured",
     "inputs": [
       {
@@ -640,131 +807,8 @@ export const AzethFactoryAbi = [
     "anonymous": false
   },
   {
-    "type": "function",
-    "name": "createAccountWithSignature",
-    "inputs": [
-      {
-        "name": "owner",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "salt",
-        "type": "bytes32",
-        "internalType": "bytes32"
-      },
-      {
-        "name": "guardrails",
-        "type": "tuple",
-        "internalType": "struct IGuardianModule.Guardrails",
-        "components": [
-          {
-            "name": "maxTxAmountUSD",
-            "type": "uint256",
-            "internalType": "uint256"
-          },
-          {
-            "name": "dailySpendLimitUSD",
-            "type": "uint256",
-            "internalType": "uint256"
-          },
-          {
-            "name": "guardianMaxTxAmountUSD",
-            "type": "uint256",
-            "internalType": "uint256"
-          },
-          {
-            "name": "guardianDailySpendLimitUSD",
-            "type": "uint256",
-            "internalType": "uint256"
-          },
-          {
-            "name": "guardian",
-            "type": "address",
-            "internalType": "address"
-          },
-          {
-            "name": "emergencyWithdrawTo",
-            "type": "address",
-            "internalType": "address"
-          }
-        ]
-      },
-      {
-        "name": "protocols",
-        "type": "address[]",
-        "internalType": "address[]"
-      },
-      {
-        "name": "tokens",
-        "type": "address[]",
-        "internalType": "address[]"
-      },
-      {
-        "name": "agentURI",
-        "type": "string",
-        "internalType": "string"
-      },
-      {
-        "name": "signature",
-        "type": "bytes",
-        "internalType": "bytes"
-      }
-    ],
-    "outputs": [
-      {
-        "name": "account",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "tokenId",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
-    ],
-    "stateMutability": "payable"
-  },
-  {
-    "type": "function",
-    "name": "nonces",
-    "inputs": [
-      {
-        "name": "owner",
-        "type": "address",
-        "internalType": "address"
-      }
-    ],
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "DOMAIN_SEPARATOR",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "bytes32",
-        "internalType": "bytes32"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
     "type": "error",
     "name": "AccountAlreadyDeployed",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "InvalidSignature",
     "inputs": []
   },
   {
@@ -781,6 +825,33 @@ export const AzethFactoryAbi = [
     "type": "error",
     "name": "DeploymentFailed",
     "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ECDSAInvalidSignature",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ECDSAInvalidSignatureLength",
+    "inputs": [
+      {
+        "name": "length",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ECDSAInvalidSignatureS",
+    "inputs": [
+      {
+        "name": "s",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ]
   },
   {
     "type": "error",
@@ -831,6 +902,16 @@ export const AzethFactoryAbi = [
   },
   {
     "type": "error",
+    "name": "InvalidShortString",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidSignature",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "InvalidURI",
     "inputs": []
   },
@@ -863,6 +944,17 @@ export const AzethFactoryAbi = [
         "name": "account",
         "type": "address",
         "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "StringTooLong",
+    "inputs": [
+      {
+        "name": "str",
+        "type": "string",
+        "internalType": "string"
       }
     ]
   }

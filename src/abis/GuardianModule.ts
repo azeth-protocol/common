@@ -793,7 +793,7 @@ export const GuardianModuleAbi = [
       {
         "name": "token",
         "type": "address",
-        "indexed": false,
+        "indexed": true,
         "internalType": "address"
       },
       {
@@ -818,7 +818,7 @@ export const GuardianModuleAbi = [
       {
         "name": "token",
         "type": "address",
-        "indexed": false,
+        "indexed": true,
         "internalType": "address"
       },
       {
@@ -894,7 +894,7 @@ export const GuardianModuleAbi = [
       {
         "name": "changeHash",
         "type": "bytes32",
-        "indexed": false,
+        "indexed": true,
         "internalType": "bytes32"
       },
       {

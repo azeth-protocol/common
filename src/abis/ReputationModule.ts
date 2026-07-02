@@ -615,6 +615,19 @@ export const ReputationModuleAbi = [
   },
   {
     "type": "function",
+    "name": "setShadowOpinionsEnabled",
+    "inputs": [
+      {
+        "name": "enabled",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
     "name": "setTrustL2Reader",
     "inputs": [
       {
@@ -625,6 +638,19 @@ export const ReputationModuleAbi = [
     ],
     "outputs": [],
     "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "shadowOpinionsEnabled",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
   },
   {
     "type": "function",
@@ -901,6 +927,19 @@ export const ReputationModuleAbi = [
   },
   {
     "type": "event",
+    "name": "ShadowOpinionsToggled",
+    "inputs": [
+      {
+        "name": "enabled",
+        "type": "bool",
+        "indexed": false,
+        "internalType": "bool"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
     "name": "TransferRecorded",
     "inputs": [
       {
@@ -1006,6 +1045,11 @@ export const ReputationModuleAbi = [
   },
   {
     "type": "error",
+    "name": "DeltaNegationOverflow",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "InsufficientPaymentUSD",
     "inputs": []
   },
@@ -1022,6 +1066,11 @@ export const ReputationModuleAbi = [
   {
     "type": "error",
     "name": "InvalidValueDecimals",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "LocalChainIdNotAllowed",
     "inputs": []
   },
   {
@@ -1063,7 +1112,17 @@ export const ReputationModuleAbi = [
   },
   {
     "type": "error",
+    "name": "ReentrancyGuardReentrantCall",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "SelfRatingNotAllowed",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ShadowOpinionsDisabled",
     "inputs": []
   },
   {
@@ -1073,7 +1132,17 @@ export const ReputationModuleAbi = [
   },
   {
     "type": "error",
+    "name": "UnresolvableTargetOwner",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "ValueOutOfRange",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "WeightOverflow",
     "inputs": []
   }
 ] as const;

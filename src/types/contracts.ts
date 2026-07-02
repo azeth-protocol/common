@@ -7,6 +7,8 @@ export interface AzethContractAddresses {
   reputationModule: `0x${string}`;
   priceOracle: `0x${string}`;
   accountImplementation: `0x${string}`;
+  /** TrustL2Reader (L1-only — empty-string sentinel on chains where it is not deployed) */
+  trustL2Reader: `0x${string}`;
 }
 
 /** Per-token balance with USD value (mirrors IAzethOracle.TokenBalance with client-side labels) */

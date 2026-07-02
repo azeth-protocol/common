@@ -5,4 +5,5 @@ export { TrustRegistryModuleAbi } from './TrustRegistryModule.js';
 export { PaymentAgreementModuleAbi } from './PaymentAgreementModule.js';
 export { ReputationModuleAbi } from './ReputationModule.js';
 export { AzethOracleAbi } from './AzethOracle.js';
+export { TrustL2ReaderAbi } from './TrustL2Reader.js';
 export { ERC8004ReputationRegistryAbi } from './ERC8004ReputationRegistry.js';

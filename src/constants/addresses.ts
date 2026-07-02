@@ -3,22 +3,24 @@
 
 export const AZETH_CONTRACTS = {
   baseSepolia: {
-    factory: '0x28e808DD688F722631482C276488289a6A8ea3e3' as `0x${string}`,
-    guardianModule: '0xC12043Ba3D58e5959E683bfFf8D94e21C8C6533C' as `0x${string}`,
-    trustRegistryModule: '0x9A199eeFFd9A4837556139474eaf8420B6ED71bD' as `0x${string}`,
-    paymentAgreementModule: '0xa3e51F13CF6B74170f8Bb6CcA2c2835563179C89' as `0x${string}`,
-    reputationModule: '0xB8C98ace6bdB25f5AEb2031150A5944F3135ccC0' as `0x${string}`,
-    priceOracle: '0x64Da6aEbE4121CE9CE8145d97950495A45BB72be' as `0x${string}`,
-    accountImplementation: '0xCEEf6Aff7f08b9902198203E2F1a07A2b10885AD' as `0x${string}`,
+    factory: '0x83f780Dc2367A1F62134f70b3e454bC5de8030e5' as `0x${string}`,
+    guardianModule: '0xD45b1653a1BcFd5b0B1bD8b6d46670a0DCeDb318' as `0x${string}`,
+    trustRegistryModule: '0xe4d53d9576a13b44751C7767e747f886FaC8FFa0' as `0x${string}`,
+    paymentAgreementModule: '0x582A4A19D9F9F9ed0521B30F53352A6DA9F38419' as `0x${string}`,
+    reputationModule: '0xd68B76Bdf8E95387208A713b8b40414CB4f36CE6' as `0x${string}`,
+    priceOracle: '0xA525109A04CbC7A61Bf55b3da0f76093cC7B5492' as `0x${string}`,
+    accountImplementation: '0x75968416F4200D8FB2276d5aA3b385De9C95AfFf' as `0x${string}`,
+    trustL2Reader: '' as `0x${string}`,
   },
   ethereumSepolia: {
-    factory: '0x28e808DD688F722631482C276488289a6A8ea3e3' as `0x${string}`,
-    guardianModule: '0xC12043Ba3D58e5959E683bfFf8D94e21C8C6533C' as `0x${string}`,
-    trustRegistryModule: '0x9A199eeFFd9A4837556139474eaf8420B6ED71bD' as `0x${string}`,
-    paymentAgreementModule: '0xa3e51F13CF6B74170f8Bb6CcA2c2835563179C89' as `0x${string}`,
-    reputationModule: '0xB8C98ace6bdB25f5AEb2031150A5944F3135ccC0' as `0x${string}`,
-    priceOracle: '0x64Da6aEbE4121CE9CE8145d97950495A45BB72be' as `0x${string}`,
-    accountImplementation: '0xCEEf6Aff7f08b9902198203E2F1a07A2b10885AD' as `0x${string}`,
+    factory: '0x83f780Dc2367A1F62134f70b3e454bC5de8030e5' as `0x${string}`,
+    guardianModule: '0xD45b1653a1BcFd5b0B1bD8b6d46670a0DCeDb318' as `0x${string}`,
+    trustRegistryModule: '0xe4d53d9576a13b44751C7767e747f886FaC8FFa0' as `0x${string}`,
+    paymentAgreementModule: '0x582A4A19D9F9F9ed0521B30F53352A6DA9F38419' as `0x${string}`,
+    reputationModule: '0xd68B76Bdf8E95387208A713b8b40414CB4f36CE6' as `0x${string}`,
+    priceOracle: '0xA525109A04CbC7A61Bf55b3da0f76093cC7B5492' as `0x${string}`,
+    accountImplementation: '0x75968416F4200D8FB2276d5aA3b385De9C95AfFf' as `0x${string}`,
+    trustL2Reader: '0xf53F234Bf12D113D420d6D6ba96b2FA78aeD889E' as `0x${string}`,
   },
   base: {
     factory: '' as `0x${string}`,
@@ -28,6 +30,7 @@ export const AZETH_CONTRACTS = {
     reputationModule: '' as `0x${string}`,
     priceOracle: '' as `0x${string}`,
     accountImplementation: '' as `0x${string}`,
+    trustL2Reader: '' as `0x${string}`,
   },
   ethereum: {
     factory: '' as `0x${string}`,
@@ -37,6 +40,7 @@ export const AZETH_CONTRACTS = {
     reputationModule: '' as `0x${string}`,
     priceOracle: '' as `0x${string}`,
     accountImplementation: '' as `0x${string}`,
+    trustL2Reader: '' as `0x${string}`,
   },
 } as const;
 
